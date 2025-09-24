@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Sabor Divino</title>
+    
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfaf6;
+            color: #4a4a4a;
+        }
+
+        /* Container Principal */
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+        
+        /* Layout Flex para main e aside */
+        .main-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        main {
+            flex: 3; /* Ocupa 3/4 do espaço */
+        }
+        
+        aside {
+            flex: 1; /* Ocupa 1/4 do espaço */
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Cabeçalho */
+        header {
+            background: #3a3a3a;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 5px solid #c89f7f;
+        }
+
+        header img.banner {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Navegação */
+        nav {
+            background: #505050;
+            color: #fff;
+            padding: 0.75rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 25px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #c89f7f;
+        }
+
+        /* Seções e Artigos */
+        section {
+            background: #fff;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: #3a3a3a;
+            border-bottom: 2px solid #c89f7f;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* Tabela do Cardápio */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #3a3a3a;
+            color: #fff;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        td:last-child {
+            font-weight: bold;
+            color: #c89f7f;
+        }
+
+        /* Formulário de Reserva */
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            background-color: #c89f7f;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #a77b59;
+        }
+        
+        /* Mídia Incorporada (PDF e Vídeo) */
+        .media-container {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .media-container iframe,
+        .media-container embed {
+            width: 100%;
+            min-height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #3a3a3a;
+            color: #fff;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Logotipo do Restaurante Sabor Divino" class="banner">
+            <h1>Restaurante Sabor Divino</h1>
+            <p>A arte da culinária italiana.</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#video">Vídeo</a></li>
+                <li><a href="#cardapio-completo">Cardápio Completo</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container main-layout">
+        <main>
+            <section id="cardapio">
+                <h2>Destaques do Cardápio</h2>
+                <article>
+                    <h3>Nossos Pratos Principais</h3>
+                    <p>Uma seleção dos pratos mais amados pelos nossos clientes, preparados com ingredientes frescos e muito carinho.</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Prato</th>
+                                <th>Descrição</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Spaghetti Carbonara</td>
+                                <td>Massa fresca com ovos, queijo pecorino e pancetta crocante.</td>
+                                <td>R$ 55,00</td>
+                            </tr>
+                            <tr>
+                                <td>Risotto al Funghi</td>
+                                <td>Arroz arbóreo cremoso com um mix de cogumelos frescos e azeite trufado.</td>
+                                <td>R$ 62,00</td>
+                            </tr>
+                            <tr>
+                                <td>Lasagna alla Bolognese</td>
+                                <td>Camadas de massa artesanal com nosso tradicional molho à bolonhesa e bechamel.</td>
+                                <td>R$ 58,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+
+            <section id="video">
+                <h2>Conheça Nossa Cozinha</h2>
+                <p>Veja um pouco da magia que acontece em nossa cozinha e a paixão que dedicamos a cada prato.</p>
+                
+                <div class="video-container">
+                   <iframe width="560" height="315" src="https://www.youtube.com/embed/WWAee9b4L2M?si=4z3dGl1PqfYEVyLi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <section id="cardapio-completo">
+                <h2>Cardápio Completo</h2>
+                <p>Explore todas as nossas opções, desde as entradas até as sobremesas, em nosso cardápio detalhado.</p>
+                
+                <div class="media-container">
+                    <iframe src="cardapio.pdf" type="application/pdf"></iframe>
+                </div>
+            </section>
+        </main>
+        
+        <aside id="reservas">
+            <h2>Faça sua Reserva</h2>
+            <p>Garanta seu lugar em uma experiência gastronômica inesquecível.</p>
+            
+            <form action="#" method="POST">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                
+                <label for="email">E-mail para Contato:</label>
+                <input type="email" id="email" name="email" placeholder="seu e-mail" required>
+                
+                <label for="pessoas">Número de Pessoas:</label>
+                <select id="pessoas" name="pessoas">
+                    <option value="1">1 pessoa</option>
+                    <option value="2" selected>2 pessoas</option>
+                    <option value="3">3 pessoas</option>
+                    <option value="4">4 pessoas</option>
+                    <option value="5+">5+ pessoas</option>
+                </select>
+                
+                <input type="submit" value="Reservar Mesa">
+            </form>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>(Dados fictícios) Restaurante Sabor Divino - Rua das Flores, 123 - Centro, São Paulo/SP</p>
+            <p>&copy; 2025. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
